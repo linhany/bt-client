@@ -7,9 +7,15 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
+  LOGOUT,
   POST_GET_ALL,
   POST_GET,
-  POST_ACCEPT
+  POST_CREATE,
+  POST_ACCEPT,
+  POST_COMMENT,
+  USER_GET,
+  USER_FOLLOW,
+  USER_UNFOLLOW
 } from './types';
 import { API_URL } from '../constant';
 
@@ -21,7 +27,7 @@ function authorisedGetRequest(url) {
     })
 }
 
-function authrisedPostRequest(extra_params) {
+function authorisedPostRequest(extra_params) {
   let params = {
     method: 'post',
     headers: {'Authorization': `Bearer ${localStorage.getItem('access_token')}`}
@@ -29,25 +35,76 @@ function authrisedPostRequest(extra_params) {
   return axios(_.merge(params, extra_params));
 }
 
+export function followUser(id) {
+  const url = API_URL.USER_BASE + `/${id}/follow`;
+  const request = authorisedPostRequest({url});
+
+  return {type: USER_FOLLOW, payload: request};
+}
+
+export function unfollowUser(id) {
+  const url = API_URL.USER_BASE + `/${id}/follow`;
+  const request = axios({
+    url,
+    method: 'delete',
+    headers: {'Authorization': `Bearer ${localStorage.getItem('access_token')}`}
+  })
+
+  return {type: USER_UNFOLLOW, payload: request};
+}
+
+export function getUser(id) {
+  const url = API_URL.USER_BASE + `/${id}`;
+  const request = axios.get(url);
+
+  return {type: USER_GET, payload: request};
+}
+
+export function configAndInitialize() {
+  const token = localStorage.getItem('access_token');
+  if (token) {
+    return function (dispatch) {
+
+      const userId = JSON.parse(atob(_.split(token, '.')[1])).id;
+      const url = API_URL.USER_BASE + `/${userId}`;
+
+      return axios.get(url)
+      .then((response) => {
+        dispatch(receiveLogin({user: response.data}))
+      })
+    }
+  }
+}
+
 export function commentPost(data) {
   const url = API_URL.POST_BASE + `/${data.id}/comments`;
-  const request = authrisedPostRequest({
+  const request = authorisedPostRequest({
     url,
     data: {
       text: data.text
     }
   });
 
-  return {type: POST_ACCEPT, payload: request};
+  return {type: POST_COMMENT, payload: request};
 }
 
 export function acceptPost(id) {
   const url = API_URL.POST_BASE + `/${id}/accept`;
-  const request = authrisedPostRequest({
+  const request = authorisedPostRequest({
     url
   });
 
   return {type: POST_ACCEPT, payload: request};
+}
+
+export function createPost(data) {
+  const url = API_URL.POST_BASE;
+  const request = authorisedPostRequest({
+    url,
+    data
+  });
+
+  return {type: POST_CREATE, payload: request}
 }
 
 export function getPost(id) {
@@ -111,6 +168,16 @@ export function login(creds) {
   }
 }
 
+export function logOut() {
+  localStorage.removeItem('access_token');
+  return {type: LOGOUT,
+    payload: {
+      isFetching: false,
+      isAuthenticated: false,
+    }
+  }
+}
+
 function requestSignup(creds) {
   return {
     type: SIGNUP_REQUEST,
@@ -161,7 +228,7 @@ function receiveLogin(user) {
       isFetching: false,
       isAuthenticated: true,
       token: user.token,
-      user: user
+      user: user.user
     }
   }
 }
