@@ -18,13 +18,6 @@ const OfferToHelp = () => (
     <div className={styles.container}>    
         <Grid container>
             <Grid.Row>
-                <Grid.Column>
-                    <div className={styles.header}>
-                        <Button icon ="arrow left" inverted color="teal" />
-                    </div>
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
                 <Grid.Column width={3}>
                     <Image src='https://www.marltonjoecanals.com/images/sites/marltonjoecanals/labels/modelo-modelo-6-pack-bottles_1.jpg' />
                 </Grid.Column>

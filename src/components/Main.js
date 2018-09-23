@@ -2,10 +2,11 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../Home';
 import Profile from '../Profile';
-import CountryListing from '../CountryListing';
-import ItemListing from '../ItemListing';
-import ItemDetail from '../ItemDetail';
+import CountryListing from './CountryListing';
+import ItemListing from './ItemListing';
+import ItemDetail from './ItemDetail';
 import OfferToHelp from '../OfferToHelp';
+import CreateRequest from '../CreateRequest';
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route path="/item-listing" component={ItemListing} />
       <Route path="/item-detail" component={ItemDetail} />
       <Route path="/offer-to-help" component={OfferToHelp} />
+      <Route path="/create-request" component={CreateRequest} />
     </Switch>
   </main>
 )

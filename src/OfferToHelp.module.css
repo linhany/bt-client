@@ -5,10 +5,11 @@
 .container {
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     z-index: 9999;
-    padding-top: 20px;
+    padding-top: 100px;
+    margin: auto;
 }
 
 .container * {
