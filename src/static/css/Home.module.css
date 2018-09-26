@@ -7,6 +7,7 @@
   background-image: url('../../assets/register/background.png');
   background-size: cover;
   padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 .menu, .search{
@@ -19,29 +20,26 @@
 
 .titleBacon{
   font-weight: bold !important;
-  color: white !important;
+  color: rgba(0,0,0,0.5) !important;
   font-size: 32pt !important;
   font-family: Arial;
-  text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
 .titleTraveller{
-  color: white !important;
+  color: rgba(0,0,0,0.5) !important;
   font-size: 32pt !important;
   font-family: Arial;
   font-weight: 100;
-  text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
 .titleSubheader {
-  color: white !important;
+  color: rgba(0,0,0,0.5) !important;
   font-size: 12pt !important;
   font-family: Arial;
-  text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
 .featured{
-  color: white !important;
+  color: rgba(0,0,0,0.5) !important;
 }
 
 .itemAuthor, .itemTitle{

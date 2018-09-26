@@ -5,8 +5,9 @@
   height: 100%;
   z-index: 9999;
   padding-top: 75px;
-  background-size: auto 40% !important;
+  background-size: 100% auto !important;
   background-image: url('../../assets/profile/background.png') !important;
+  background-repeat: no-repeat !important;
 }
 
 .notLoggedIn {
@@ -72,4 +73,3 @@
 .menu * {
   color: red !important;
 }
-

@@ -18,16 +18,6 @@ class Header extends React.Component {
         const { isSidebarVisible, isFabVisible } = this.state
         return (
             <div>
-<<<<<<< HEAD
-                <Sidebar.Pushable>
-                    <Sidebar as={Menu} animation='push' visible={isSidebarVisible} width='thin' onHide={this.onSidebarHidden} inverted vertical>
-                      <Menu.Item name='home' active={this.props.path === "/"} as={Link} to="/" onClick={this.onSidebarHidden} />
-                      <Menu.Item name='Register' active={this.props.path === "/register"} as={Link} to="/register" onClick={this.onSidebarHidden} />
-                      <Menu.Item name='Profile' active={this.props.path === "/profile"} as={Link} to="/profile" onClick={this.onSidebarHidden} />
-                      <Menu.Item name='Country Listing' active={this.props.path === "/country-listing"} as={Link} to="/country-listing" onClick={this.onSidebarHidden} />
-                      <Menu.Item name='Item Detail' active={this.props.path === "/item-detail"} as={Link} to="/item-detail" onClick={this.onSidebarHidden} />
-                      <Menu.Item name='Offer to Help' active={this.props.path === "/offer-to-help"} as={Link} to="/offer-to-help" onClick={this.onSidebarHidden} />
-=======
                 <Sidebar.Pushable className={styles.pushable}>
                     <Sidebar as={Menu} animation='push' visible={isSidebarVisible} width='thin' onHide={this.onSidebarHidden} style={{ width: 260 }} inverted vertical>
                         <div className={styles.sidebarTop}>
@@ -35,11 +25,10 @@ class Header extends React.Component {
                             <h2 className={styles.sidebarUsername}>Jane Doe</h2>
                             <h6 className={styles.sidebarRank}>SuperTraveller</h6>
                         </div>
-                        <Menu.Item name='home' active={this.props.path === "/"} as={Link} to="/" onClick={this.onSidebarHidden} />
+                        <Menu.Item name='Home' active={this.props.path === "/"} as={Link} to="/" onClick={this.onSidebarHidden} />
                         <Menu.Item name='Register' active={this.props.path === "/register"} as={Link} to="/register" onClick={this.onSidebarHidden} />
                         <Menu.Item name='Profile' active={this.props.path === "/profile"} as={Link} to="/profile" onClick={this.onSidebarHidden} />
                         <Menu.Item name='Country Listing' active={this.props.path === "/country-listing"} as={Link} to="/country-listing" onClick={this.onSidebarHidden} />
->>>>>>> 938ea18fc1b2232e14176fe0a3d27d7e4c7f913c
                     </Sidebar>
 
                     <Sidebar.Pusher>

@@ -45,7 +45,7 @@ class Register extends Component {
             <Form size='huge' onSubmit={this.handleSubmit}>
               <Form.Field>
                 <Header className={styles.logo} textAlign='center'>
-                  <span>BACON TRAVELLER</span>
+                  <span className={styles.title}>BACON TRAVELLER</span>
                   <Header.Subheader className={styles.logoSubheader}>Helps you to bring back overseas products.</Header.Subheader>
                 </Header>
               </Form.Field>
@@ -55,8 +55,8 @@ class Register extends Component {
               <Form.Input placeholder='Username' name='username' value={username} onChange={this.handleChange}/>
               <Form.Input placeholder='Password' name='password' value={password} type='password' onChange={this.handleChange}/>
               { signIn ?
-                <Form.Button size='huge' fluid loading={isFetching} disabled={isFetching}>SIGN IN</Form.Button> :
-                <Form.Button size='huge' fluid loading={isFetching} disabled={isFetching}>SIGN UP</Form.Button>
+                <Form.Button primary size='huge' fluid loading={isFetching} disabled={isFetching}>SIGN IN</Form.Button> :
+                <Form.Button primary size='huge' fluid loading={isFetching} disabled={isFetching}>SIGN UP</Form.Button>
               }
               <Form.Field>
                 <Header textAlign='center'>

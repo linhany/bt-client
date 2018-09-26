@@ -107,6 +107,16 @@ class Profile extends Component {
       );
     }
 
+    // const currUser = {
+    //   deals_closed_count: 20,
+    //   followers_count: 1,
+    //   following: 1,
+    //   image_url: "https://randomuser.me/api/portraits/women/8.jpg",
+    //   createdAt: 100,
+    //   posts_buy: true,
+    //   transactions_sell: true,
+    // }
+
     const userStats = [
         { key: 'dealClosed', label: 'Deal Closed', value: currUser.deals_closed_count },
         { key: 'followers', label: 'Followers', value: currUser.followers_count },
@@ -157,6 +167,7 @@ class Profile extends Component {
         <Button color='red' fluid onClick={this.open}>Log out</Button>
         <Confirm
           confirmButton="YES"
+          header='Log out'
           open={this.state.open}
           onCancel={this.close}
           onConfirm={() => {this.props.logOut(); this.close();}} />
