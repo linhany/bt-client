@@ -5,7 +5,7 @@
     height: 100%;
     z-index: 9999;
     background-image: url('../../assets/country-listing/background.png');
-    background-size: auto 50%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     padding-top: 75px;
     padding-bottom: 50px;

@@ -13,7 +13,7 @@ class CreateRequest extends Component {
 
   handleSubmit() {
     this.props.createPost(this.state);
-    this.props.history.goBack();
+    this.props.history.push('/');
   }
 
   isValid() {

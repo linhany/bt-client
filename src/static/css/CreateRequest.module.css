@@ -1,5 +1,8 @@
 .container {
     padding-top: 80px;
+    background: url('../../assets/create-request/background.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
 }
 
 .createRequestForm button{
