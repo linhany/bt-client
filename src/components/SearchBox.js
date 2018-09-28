@@ -33,7 +33,8 @@ class SearchBox extends Component {
         title: post.item_name,
         description: post.description,
         image: post.item_image_url,
-        price: post.price
+        price: post.price,
+        id: post.id
       }
     })
 
